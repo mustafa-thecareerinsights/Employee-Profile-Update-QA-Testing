@@ -1,0 +1,26 @@
+Test Case ID,Type,Title,Precondition,Steps,Expected Result,Actual Result,Status
+TC-001,Positive,Open employee profile edit page,User is logged in and has profile access,Navigate to Employee Profile > Edit Profile,Edit profile page opens with current details populated,Edit profile page opened correctly,Pass
+TC-002,Positive,Update employee first and last name,Edit profile page is open,"Change First Name and Last Name, then click Save",Updated name is saved and displayed on profile summary,Updated name displayed after save,Pass
+TC-003,Positive,Update phone number with valid format,Edit profile page is open,Enter valid phone number 9876543210 and save,Phone number is accepted and saved,Phone number saved successfully,Pass
+TC-004,Positive,Update email with valid format,Edit profile page is open,Enter employee.qa@example.com and save,Email is accepted and saved,Email saved successfully,Pass
+TC-005,Positive,Update address field,Edit profile page is open,"Update address line, city, state, and ZIP code, then save",Address details are saved correctly,Address saved correctly,Pass
+TC-006,Positive,Update designation,Edit profile page is open,Change designation to Senior QA Engineer and save,Designation is updated and visible in profile,Designation updated correctly,Pass
+TC-007,Positive,Update multiple profile fields together,Edit profile page is open,"Update name, phone, address, and designation, then save",All updated values are saved correctly,All values saved correctly,Pass
+TC-008,Validation,Required name field validation,Edit profile page is open,Clear First Name and click Save,System displays required field validation message,Validation message displayed,Pass
+TC-009,Validation,Required phone field validation,Edit profile page is open,Clear Phone Number and click Save,System displays phone required validation message,Validation message displayed,Pass
+TC-010,Validation,Required designation field validation,Edit profile page is open,Clear Designation and click Save,System displays designation required validation message,Validation message displayed,Pass
+TC-011,Negative,Invalid phone number with alphabets,Edit profile page is open,Enter abcdefghij in Phone Number and click Save,System rejects input and displays valid phone format error,Phone validation error displayed,Pass
+TC-012,Negative,Invalid phone number with less digits,Edit profile page is open,Enter 12345 in Phone Number and click Save,System rejects short phone number,Short phone number rejected,Pass
+TC-013,Negative,Invalid phone number with special characters,Edit profile page is open,Enter @#$%^& in Phone Number and click Save,System rejects special characters,Special characters rejected,Pass
+TC-014,Negative,Invalid email missing @ symbol,Edit profile page is open,Enter employee.example.com and click Save,System displays invalid email format error,Email validation error displayed,Pass
+TC-015,Negative,Invalid email missing domain,Edit profile page is open,Enter employee@ and click Save,System rejects incomplete email,Incomplete email rejected,Pass
+TC-016,Validation,Maximum length validation for name field,Edit profile page is open,Enter more than 50 characters in First Name and save,System prevents or rejects excessive characters,Long name validation displayed,Pass
+TC-017,Validation,Maximum length validation for address field,Edit profile page is open,Enter very long address text and save,System handles limit properly without UI break,Address limit handled correctly,Pass
+TC-018,UI,Cancel profile update,Profile edit form has unsaved changes,Click Cancel,Changes are discarded and user returns to profile page,Unsaved changes discarded,Pass
+TC-019,Data Integrity,Verify saved details after page refresh,Profile details have been updated,Refresh profile page after save,Updated details remain saved after refresh,Updated data persisted,Pass
+TC-020,Data Integrity,Verify saved details after logout and login,Profile details have been updated,"Logout, login again, open profile",Updated details still display correctly,Updated details retained,Pass
+TC-021,Message,Success message after valid update,Valid profile update is submitted,Click Save with valid details,System displays clear success message,Success message displayed,Pass
+TC-022,Message,Error message after invalid update,Invalid profile update is submitted,Enter invalid email and click Save,System displays clear error message near the invalid field,Error message displayed,Pass
+TC-023,Security,Verify unauthorized user cannot edit another employee profile,User is logged in with normal employee role,Attempt direct URL access to another employee edit page,Access is denied or redirected,Access denied displayed,Pass
+TC-024,Regression,Verify existing profile data does not disappear,Profile page contains existing employee data,Open edit page and click Save without changes,Existing data remains unchanged,Existing data preserved,Pass
+TC-025,Usability,Verify labels and required markers are clear,Edit profile page is open,"Review form labels, required markers, and field hints",All fields have clear labels and required fields are marked,Labels and markers visible,Pass
